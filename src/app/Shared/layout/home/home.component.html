@@ -1,0 +1,161 @@
+<nz-layout>
+  <!-- Sidenav Starts -->
+  <nz-sider nzCollapsible [(nzCollapsed)]="isCollapsed" [nzTrigger]="null">
+    <div class="logo">
+      <a routerLink="/home"><img src="\assets\Images\Logo.png" width="50px" height="50px" alt="Logo"  class="img-fluid"></a>
+    </div>
+    <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item>
+        <i nz-icon nzType="dashboard" nzTheme="outline"></i>
+        <span>Dashboard</span>
+      </li>
+      <li nz-menu-item>
+        <i nz-icon nzType="wallet" nzTheme="outline"></i>
+        <span>Link 1</span>
+      </li>
+      <li nz-menu-item>
+        <i nz-icon nzType="pie-chart" nzTheme="outline"></i>
+        <span>Link 2</span>
+      </li>
+      <li nz-submenu nzTitle="Link 3" nzIcon="bars">
+        <ul>
+          <li nz-menu-item>Sub-Link 1</li>
+          <li nz-menu-item>Sub-Link 2</li>
+        </ul>
+      </li>
+
+      <!--<li nz-menu-item>
+            <i nz-icon nzType="file"></i>
+            <span>File</span>
+          </li>-->
+
+    </ul>
+  </nz-sider>
+  <!-- Sidenav ends -->
+
+  <nz-layout>
+    <!-- Navbar Starts -->
+    <nz-header>
+      <i class="trigger" nz-icon [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+        (click)="isCollapsed = !isCollapsed">
+      </i>
+      <div class="row mt-2 ml-auto">
+        <div class="d-flex">
+          <button class="btn" data-bs-toggle="" aria-expanded="false">
+            <i nz-icon nzType="bell" nzTheme="outline"></i>
+          </button>
+          <div class="profile-logo dropdown ms-auto">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <i nz-icon nzType="user" nzTheme="outline"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-dark">
+              <li>
+                <a href="#" data-bs-toggle="modal" data-bs-target="#exampleModal" class="dropdown-item">
+                  <i nz-icon nzType="user-add" nzTheme="outline"></i>Add Student
+                </a>
+              </li>
+              <li>
+                <hr class="dropdown-divider">
+              </li>
+              <li>
+                <a href="#" class="dropdown-item">
+                  <i nz-icon nzType="export" nzTheme="outline"></i>Log Out
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nz-header>
+    <!-- Navbar ends -->
+
+    <nz-content>
+      <nz-breadcrumb>
+        <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
+      </nz-breadcrumb>
+
+      <!-- Table starts -->
+      <div class="inner-content">
+        <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
+          <thead>
+            <tr>
+              <th nzCustomFilter>
+                Student Name
+                <nz-filter-trigger [(nzVisible)]="visible" [nzActive]="searchValue.length > 0" [nzDropdownMenu]="menu">
+                  <i nz-icon nzType="search"></i>
+                </nz-filter-trigger>
+              </th>
+              <th>Registration No</th>
+              <th>Parent ID</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of nzTable.data" class="editable-row">
+              <td>{{ data.studentname }}</td>
+              <td>{{ data.registrationNo }}</td>
+              <td>{{ data.parentID }}</td>
+              <td>
+                <a nz-popconfirm nzPopconfirmTitle="Sure to delete?" (nzOnConfirm)="deleteRow(data.id)"
+                  class="delete">Delete</a>
+                <a class="edit">Edit</a>
+              </td>
+            </tr>
+          </tbody>
+        </nz-table>
+        <nz-dropdown-menu #menu="nzDropdownMenu">
+          <div class="ant-table-filter-dropdown">
+            <div class="search-box">
+              <input type="text" nz-input placeholder="Search name" [(ngModel)]="searchValue" />
+              <button nz-button nzSize="small" nzType="primary" (click)="search()" class="search-button">Search</button>
+              <button nz-button nzSize="small" (click)="reset()">Reset</button>
+            </div>
+          </div>
+        </nz-dropdown-menu>
+      </div>
+    </nz-content>
+    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
+  </nz-layout>
+</nz-layout>
+<!-- Table Ends -->
+
+<!-- modal starts -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title" id="exampleModalLabel">Add Student</h1>
+        <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form nz-form [formGroup]="adminForm">
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzRequired nzFor="studentname">Student Name</nz-form-label>
+            <nz-form-control [nzSpan]="9">
+              <input type="text" nz-input formControlName="studentname" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzRequired nzFor="regno">Registration No</nz-form-label>
+            <nz-form-control [nzSpan]="9">
+              <input type="text" nz-input formControlName="registrationNo" />
+            </nz-form-control>
+          </nz-form-item>
+          <nz-form-item>
+            <nz-form-label [nzSpan]="6" nzRequired nzFor="parentid">Parent ID</nz-form-label>
+            <nz-form-control [nzSpan]="9">
+              <input type="text" nz-input formControlName="parentID" />
+            </nz-form-control>
+          </nz-form-item>
+        </form>
+
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button class="btn btn-primary" (click)="addStudent()">Add</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- modal ends -->

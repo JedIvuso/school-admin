@@ -1,0 +1,129 @@
+.trigger {
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.trigger:hover {
+  color: #1890ff;
+}
+
+.logo {
+  height: 70px;
+  background: #ffffff33;
+  margin: 16px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+nz-header {
+  background: #fff;
+  padding: 0;
+}
+
+nz-content {
+  margin: 0 16px;
+}
+
+nz-breadcrumb {
+  margin: 16px 0;
+}
+
+.inner-content {
+  padding: 24px;
+  background: #fff;
+  height: 100%;
+}
+
+nz-footer {
+  text-align: center;
+}
+
+nz-layout {
+  height: 100%;
+}
+
+.btn {
+  margin-left: 5px;
+  font-size: 18px;
+  line-height: 64px;
+  padding: 0 24px;
+  cursor: pointer;
+  transition: color 0.3s;
+  border: 0;
+}
+
+.btn:hover {
+  color: #1890ff;
+}
+
+.row {
+  position: absolute;
+  display: inline-flex;
+  right: 0;
+}
+
+.ant-menu {
+  font-size: inherit;
+}
+
+.ant-breadcrumb {
+  font-size: inherit;
+}
+
+div.modal-footer button{
+  line-height: 40px;
+}
+
+div.modal-footer button:hover{
+  color: black;
+}
+
+/* .dropdown-menu{
+  --bs-dropdown-padding-x: none;
+  --bs-dropdown-divider-margin-y:none;
+} */
+
+.row{
+  --bs-gutter-x:none;
+}
+
+h1{
+  margin: 0;
+}
+
+/* Table css starts */
+.search-box {
+  padding: 8px;
+}
+
+.search-box input {
+  width: 188px;
+  margin-bottom: 8px;
+  display: block;
+}
+
+.search-box button {
+  width: 90px;
+}
+
+.search-button {
+  margin-right: 8px;
+}
+
+.editable-row:hover{
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  padding: 4px 11px;
+}
+/* Table css ends */
+
+.edit {
+  margin-left: 15px;
+}
