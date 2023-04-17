@@ -4,23 +4,23 @@
     <div class="logo">
       <a routerLink="/home"><img src="\assets\Images\Logo.png" width="50px" height="50px" alt="Logo"  class="img-fluid"></a>
     </div>
-    <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item>
-        <i nz-icon nzType="dashboard" nzTheme="outline"></i>
+    <ul nz-menu nzTheme="light" nzMode="inline">
+      <li nz-menu-item nzTheme="outline" routerLinkActive="active">
+        <i nz-icon style="color: black;" nzType="dashboard" nzTheme="outline" routerLinkActive="active"></i>
         <span>Dashboard</span>
       </li>
-      <li nz-menu-item>
-        <i nz-icon nzType="wallet" nzTheme="outline"></i>
+      <li nz-menu-item nzTheme="outline" routerLinkActive="active">
+        <i nz-icon style="color: black;" nzType="wallet" nzTheme="outline" routerLinkActive="active"></i>
         <span>Link 1</span>
       </li>
-      <li nz-menu-item>
-        <i nz-icon nzType="pie-chart" nzTheme="outline"></i>
+      <li nz-menu-item nzTheme="outline" routerLinkActive="active">
+        <i nz-icon style="color: black;" nzType="pie-chart" nzTheme="outline" routerLinkActive="active"></i>
         <span>Link 2</span>
       </li>
-      <li nz-submenu nzTitle="Link 3" nzIcon="bars">
+      <li nz-submenu style="color: black;" nzTitle="Link 3" nzIcon="bars">
         <ul>
-          <li nz-menu-item>Sub-Link 1</li>
-          <li nz-menu-item>Sub-Link 2</li>
+          <li nz-menu-item style="color: black;" routerLinkActive="active">Sub-Link 1</li>
+          <li nz-menu-item style="color: black;" routerLinkActive="active">Sub-Link 2</li>
         </ul>
       </li>
 
@@ -41,11 +41,11 @@
       </i>
       <div class="row mt-2 ml-auto">
         <div class="d-flex">
-          <button class="btn" data-bs-toggle="" aria-expanded="false">
+          <button class="btn" aria-expanded="false" aria-label="notification">
             <i nz-icon nzType="bell" nzTheme="outline"></i>
           </button>
           <div class="profile-logo dropdown ms-auto">
-            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <button class="btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" aria-label="add-student">
               <i nz-icon nzType="user" nzTheme="outline"></i>
             </button>
             <ul class="dropdown-menu dropdown-dark">
@@ -73,9 +73,9 @@
       <nz-breadcrumb>
         <nz-breadcrumb-item>Dashboard</nz-breadcrumb-item>
       </nz-breadcrumb>
-
+        
       <!-- Table starts -->
-      <div class="inner-content">
+      <div class="inner-content"  id="myTable">
         <nz-table #nzTable [nzData]="listOfDisplayData" nzTableLayout="fixed">
           <thead>
             <tr>
@@ -114,7 +114,6 @@
         </nz-dropdown-menu>
       </div>
     </nz-content>
-    <nz-footer>Ant Design ©2020 Implement By Angular</nz-footer>
   </nz-layout>
 </nz-layout>
 <!-- Table Ends -->
