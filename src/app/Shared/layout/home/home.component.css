@@ -7,12 +7,12 @@
 }
 
 .trigger:hover {
-  color: #1890ff;
+  color: white;
 }
 
 .logo {
   height: 70px;
-  background: #ffffff33;
+  background: rgba(255, 255, 255, 0.2);
   margin: 16px;
 }
 
@@ -22,8 +22,12 @@ img {
   margin-right: auto;
 }
 
+nz-sider{
+  background: white;
+}
+
 nz-header {
-  background: #fff;
+  background: rgba(31, 146, 204, 1);
   padding: 0;
 }
 
@@ -60,7 +64,7 @@ nz-layout {
 }
 
 .btn:hover {
-  color: #1890ff;
+  color: white;
 }
 
 .row {
